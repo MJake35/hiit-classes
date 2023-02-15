@@ -1,0 +1,24 @@
+header {
+    width: 100vw;
+    background-color: rgb(178, 193, 193);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+}
+
+header h1 {
+    font-size: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+header button {
+    padding: 16px 32px;
+    border-radius: 16px;
+    border: none;
+    background-color: rgb(61, 61, 157);
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+}

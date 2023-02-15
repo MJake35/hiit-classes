@@ -1,0 +1,20 @@
+.homepage {
+    max-width: 100vw;
+    width: 100vw;
+    height: 100vh;
+    background-color: aqua;
+    padding: 20px 60px;
+}
+
+.homepage h1 {
+    margin: 30px 0px 0px;
+    font-size: 40px;
+}
+
+.blogs-container {
+    background-color: gray;
+}
+
+.allBlogs {
+    /* background-color: yellow; */
+}
