@@ -1,10 +1,9 @@
-.homepage {
+/* .homepage {
     max-width: 100vw;
     width: 100vw;
     height: 100vh;
-    background-color: aqua;
     padding: 20px 60px;
-}
+} */
 
 .homepage h1 {
     margin: 30px 0px 0px;
@@ -12,9 +11,49 @@
 }
 
 .blogs-container {
-    background-color: gray;
+    margin: 30px 0px;
+    padding: 20px;
+    max-width: 800px;
+    width: 80%;
+    height: auto;
+    border-radius: 10px;
 }
 
 .allBlogs {
-    /* background-color: yellow; */
+    margin: 10px 0px;
+    padding: 20px;
+    border-bottom: 1px solid #000000;
+}
+
+.allBlogs p {
+    margin: 0;
+}
+
+.allBlogs p:first-child {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.allBlogs p:last-child {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.allBlogs p:nth-child(2) {
+    font-size: 14px;
+    font-weight: 400;
+    margin: 5px 0px 20px;
+}
+
+.homepage .new-blog {
+    position: fixed;
+    right: 200px;
+    bottom: 150px;
+    padding: 8px 16px;
+    height: 60px;
+    width: 180px;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    box-shadow: -3px 6px 19px -2px rgba(0, 0, 0, 0.75);
 }

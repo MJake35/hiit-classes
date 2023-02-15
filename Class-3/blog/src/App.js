@@ -2,7 +2,6 @@ import Blog from "./pages/blog";
 import Header from "./components/header";
 import Homepage from "./pages/homepage";
 import NewBlog from "./pages/newBlogs";
-import { BrowserRouter } from 'react-router-dom'
 
 const App = () => {
   const blogs = [
@@ -29,8 +28,8 @@ const App = () => {
   return (
     <div className="App">
       <Header />
-      {/* <Homepage blogs={blogs} /> */}
-      <NewBlog />
+      <Homepage blogs={blogs} />
+      {/* <NewBlog /> */}
       {/* <Blog /> */}
     </div>
   );
