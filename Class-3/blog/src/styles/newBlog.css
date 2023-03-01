@@ -28,6 +28,16 @@ form textarea {
     margin: 10px 0px 20px;
 }
 
+form p {
+    margin: 15px 0px 20px;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+    background-color: red;
+    width: fit-content;
+
+}
+
 form button {
     height: 50px;
     width: 150px;
