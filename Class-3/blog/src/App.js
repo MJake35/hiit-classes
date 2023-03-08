@@ -5,6 +5,7 @@ import NewBlog from "./pages/newBlogs";
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import About from "./pages/about";
 import { useState } from "react";
+import Error404 from "./pages/Error404";
 
 
 const App = () => {
@@ -34,7 +35,12 @@ const App = () => {
 
   const addBlog = (newBlog) => {
     setBlogs([...blogs, newBlog])
-    console.log(blogs)
+  }
+
+  const deleteBlog = (id) => {
+    // const updatedBlog = blogs.filter(blog => blog.id !== id)
+    // setBlogs(updatedBlog)
+    setBlogs(blogs.filter(blog => blog.id !== id))
   }
 
   return (
@@ -48,8 +54,9 @@ const App = () => {
           <Route path="/" element={<Homepage blogs={blogs} />} />
           <Route path="/create" element={<NewBlog updateBlog={addBlog} blogs={blogs} />} />
           {/* the colon (:) informs the browser to expect a dynamic value and then saves the value as the name stated after the colon */}
-          <Route path="/blog/:id/:blog_title" element={<Blog blogs={blogs} />} />
+          <Route path="/blog/:id/:blog_title" element={<Blog blogs={blogs} updateBlog={deleteBlog} />} />
           <Route path="/about" element={<About />} />
+          <Route path="*" element={<Error404 />} />
         </Routes>
       </div>
     </BrowserRouter>

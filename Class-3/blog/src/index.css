@@ -39,6 +39,6 @@ button:active {
 main {
   max-width: 100vw;
   width: 100vw;
-  height: 100vh;
   padding: 20px 60px;
+  height: calc(100vh - 120px);
 }
