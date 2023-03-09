@@ -1,8 +1,11 @@
 import '../styles/homepage.css'
 import { Link, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux'
 
-const Homepage = ({ blogs }) => {
+// const Homepage = ({ blogs }) => {
+const Homepage = () => {
     const navigate = useNavigate()
+    const blogs = useSelector((state) => state.allBlogs.blogs)
 
 
     return (
