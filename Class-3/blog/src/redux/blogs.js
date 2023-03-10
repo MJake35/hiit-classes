@@ -26,12 +26,13 @@ export const blogSlice = createSlice({
         ]
     },
     reducers: {
-        addBlog: (state) => {
+        addBlog: (state, action) => {
+            state.blogs = [...state.blogs, action.payload]
 
         },
 
-        deleteBlog: (state) => {
-
+        deleteBlog: (state, action) => {
+            state.blogs = state.blogs.filter(blog => blog.id !== action.payload)
         }
     }
 })

@@ -1,8 +1,11 @@
 import '../styles/newBlog.css'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { addBlog } from '../redux/blogs';
 
-const NewBlog = ({ blogs, updateBlog }) => {
+// const NewBlog = ({ blogs, updateBlog }) => {
+const NewBlog = () => {
 
     const [title, setTitle] = useState('')
     const [author, setAuthor] = useState('')
@@ -10,6 +13,8 @@ const NewBlog = ({ blogs, updateBlog }) => {
     const [fieldError, setFieldError] = useState(false)
     const navigate = useNavigate()
     let blog = {}
+    const blogs = useSelector((state) => state.allBlogs.blogs)
+    const updateBlog = useDispatch()
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -23,7 +28,7 @@ const NewBlog = ({ blogs, updateBlog }) => {
                 body: body
             }
 
-            updateBlog(blog)
+            updateBlog(addBlog(blog))
             console.log(blog)
             navigate('/')
         }

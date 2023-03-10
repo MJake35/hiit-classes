@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import '../styles/blog.css'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { deleteBlog } from "../redux/blogs";
 
 // const Blog = ({ blogs, updateBlog }) => {
 const Blog = () => {
@@ -12,10 +13,11 @@ const Blog = () => {
     const [blog] = blogs.filter(blog => blog.id === Number(params.id))
     const navigate = useNavigate()
     const [deletePopup, setDeletePopup] = useState(false)
+    const updateBlog = useDispatch()
 
     const handlDelete = () => {
-        // updateBlog(blog.id)
-        // navigate('/')
+        updateBlog(deleteBlog(blog.id))
+        navigate('/')
     }
 
 
