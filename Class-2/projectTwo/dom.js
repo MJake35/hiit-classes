@@ -23,8 +23,7 @@ const btn = document.querySelector('button')
 
 // pwd_err.innerHTML = ('Password not strong enough')
 
-btn.addEventListener('click', (e) => {
-    e.preventDefault()
+const login = () => {
     document.querySelector('p.err-pwd').innerText = ''
     document.querySelector('p.err-email').innerText = ''
 
@@ -44,12 +43,43 @@ btn.addEventListener('click', (e) => {
             allInputs.forEach(element => {
                 element.value = ''
             })
+            notLogin()
         }
         else {
             document.querySelector('p.err-pwd').innerText = 'Password not strong enough'
+            notLogin()
         }
     }
     else {
         document.querySelector('p.err-email').innerText = 'invalid email'
+        notLogin()
     }
+
+}
+
+const notLogin = () => {
+    const removePopup = document.querySelector('.confirm')
+    removePopup.remove()
+}
+
+const popup = document.createElement('div')
+// popup.className = 'status'
+popup.setAttribute('class', 'confirm')
+popup.innerHTML = '<p>Are you sure you want to login in?</p>'
+// console.log(popup)
+
+yes_btn = document.createElement('button')
+yes_btn.setAttribute('onclick', 'login()')
+yes_btn.innerText = 'Yes'
+popup.appendChild(yes_btn)
+
+no_btn = document.createElement('button')
+no_btn.setAttribute('onclick', 'notLogin()')
+no_btn.innerText = 'No'
+popup.appendChild(no_btn)
+
+
+btn.addEventListener('click', (e) => {
+    e.preventDefault()
+    document.body.appendChild(popup)
 })
