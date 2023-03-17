@@ -1,65 +1,6 @@
-let products = [
-    {
-        id: 1,
-        name: 'AC',
-        description: 'For Cooling',
-        price: '200'
-    },
-    {
-        id: 2,
-        name: 'Washing Machine',
-        description: 'For dry cleaning clothes and beddings',
-        price: '500'
-    },
-    {
-        id: 3,
-        name: 'Screen',
-        description: 'For viewing content',
-        price: '300'
-    },
-    {
-        id: 4,
-        name: '	Keyboard',
-        description: 'Typing',
-        price: '50'
-    },
-    {
-        id: 5,
-        name: 'Phone',
-        description: 'Making Calls',
-        price: '1150'
-    },
-    {
-        id: 6,
-        name: 'Marker',
-        description: 'Writing',
-        price: '50'
-    },
-    {
-        id: 7,
-        name: 'Table',
-        description: 'Placing items',
-        price: '50'
-    },
-    {
-        id: 8,
-        name: 'Chair',
-        description: 'Sitting',
-        price: '5'
-    },
-    {
-        id: 9,
-        name: 'Cap',
-        description: '	For providing shade',
-        price: '2'
-    },
-    {
-        id: 10,
-        name: 'Electricity',
-        description: '	For providing power',
-        price: '500'
-    },
-]
+import { allProducts } from './products.js'
+
+let products = allProducts
 
 const addProduct = (objValue) => {
     products = [...products, objValue]
@@ -123,6 +64,22 @@ const createTabeleRows = () => {    // to populate the table with data
         const data4 = document.createElement('td')
         data4.innerText = '#' + product.price
         tableProductRow.appendChild(data4)
+
+        const del = document.createElement('button')
+        del.innerText = 'delete'
+
+        del.addEventListener('click', () => {
+            removeProduct(product.id)
+
+            // to get the existing table data rows
+            const tableData = document.querySelectorAll('.product-row')
+            tableData.forEach(row => {
+                row.remove()    // to remove all the existing table
+            })
+
+            createTabeleRows()  // to repopulate the table with the updated product list
+        })
+        tableProductRow.appendChild(del)
 
         table.appendChild(tableProductRow)
     })
