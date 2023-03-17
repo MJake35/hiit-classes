@@ -80,17 +80,21 @@ const removeProduct = (id) => {
 //     price: '5000'
 // }
 
+
+// To create the table
 const table = document.createElement('table')
 table.setAttribute('border', '1')
 table.setAttribute('width', '100%')
 table.setAttribute('cellpadding', '5')
 table.setAttribute('cellspacing', '5')
+document.body.appendChild(table)
 
 const tableHeaderRow = document.createElement('tr')
 
 const tableHeaderItem = ['S/N', 'Name', 'Description', 'Price']
 
 
+// to create the table header
 tableHeaderItem.forEach(item => {
     const tableHeader = document.createElement('th')
     tableHeader.innerText = item
@@ -98,9 +102,11 @@ tableHeaderItem.forEach(item => {
 })
 table.appendChild(tableHeaderRow)
 
-const createTabeleRows = () => {
+
+const createTabeleRows = () => {    // to populate the table with data
     products.forEach(product => {
         const tableProductRow = document.createElement('tr')
+        tableProductRow.setAttribute('class', 'product-row')
 
         const data1 = document.createElement('td')
         data1.innerText = product.id + '.'
@@ -144,6 +150,7 @@ newProductForm.appendChild(priceInput)
 const btn = document.createElement('button')
 btn.innerText = 'Add New Product'
 
+// to submit the form
 btn.addEventListener('click', (e) => {
     e.preventDefault()
 
@@ -156,13 +163,17 @@ btn.addEventListener('click', (e) => {
         }
     )
 
-    tableProductRow.remove()
-    createTabeleRows()
+    // to get the existing table data rows
+    const tableData = document.querySelectorAll('.product-row')
+    tableData.forEach(row => {
+        row.remove()    // to remove all the existing table
+    })
+
+    createTabeleRows()  // to repopulate the table with the updated product list
 })
 
 newProductForm.appendChild(btn)
-
-
-createTabeleRows()
-document.body.appendChild(table)
 document.body.appendChild(newProductForm)
+
+
+createTabeleRows()      // populates the table with the product list on first page load
