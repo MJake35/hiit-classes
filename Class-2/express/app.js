@@ -62,7 +62,7 @@ app.get('/getInfo/:id', async (req, res) => {
         const [user] = await db.execute(sql)
 
         if (user[0]) {
-            res.status(200).json({ user })
+            res.status(200).json(user[0])
         }
         else {
             res.status(200).json({ user: 'User does not exist' })
