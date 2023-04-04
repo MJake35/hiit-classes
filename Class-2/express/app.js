@@ -4,6 +4,7 @@ require('dotenv').config()      // importing the dot env file
 const bodyParser = require('body-parser')
 const db = require('./config/db')
 const timestamp = require('./middlewares/timestamp')
+const cors = require('cors')
 
 const app = express()       // creating an instance of express (class)
 const PORT = process.env.PORT       // using the dot env file
@@ -17,6 +18,13 @@ app.use(morgan('dev'))
 //     next()
 // })
 app.use(bodyParser.json())      // used to identify the body of a request
+
+app.use(
+    cors({
+        origin: [`https://localhost:${PORT}`, 'https://hiit-contact.onrender.com'],
+        credentials: true
+    })
+)
 
 
 app.get('/', (req, res) => {
