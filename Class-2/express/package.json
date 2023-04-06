@@ -4,16 +4,22 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js",
+    "start": "node app.js",
     "dev": "nodemon app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "morgan": "^1.10.0",
+<<<<<<< HEAD
     "nodemon": "^2.0.22"
   },
   "description": ""
+=======
+    "mysql2": "^3.2.0"
+  }
+>>>>>>> 091a21847b2cfd57624c031145e8809979aa893a
 }
